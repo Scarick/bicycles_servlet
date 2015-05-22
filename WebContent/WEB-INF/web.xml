@@ -16,13 +16,13 @@
   </servlet-mapping>
   <!-- Controllers -->
   <servlet>
-    <description>Edit controller</description>
-    <display-name>EditController</display-name>
-    <servlet-name>EditController</servlet-name>
-    <servlet-class>ua.scarick.bicycles_servlet.controller.EditController</servlet-class>
+    <description>Bicycle controller</description>
+    <display-name>BicycleController</display-name>
+    <servlet-name>BicycleController</servlet-name>
+    <servlet-class>ua.scarick.bicycles_servlet.controller.BicycleController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>EditController</servlet-name>
+    <servlet-name>BicycleController</servlet-name>
     <url-pattern>/edit</url-pattern>
   </servlet-mapping>
 </web-app>

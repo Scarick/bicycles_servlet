@@ -35,8 +35,8 @@
 	<table>
 		<tr>
 			<td><input id="refreshButton" name="refresh" type="button" value="Refresh" onclick=""></td>
-			<td><input id="editButton" name="edit" type="submit" value="Edit"></td>
-			<td><input id="deleteButton" name="delete" type="button" value="Delete"></td>
+			<td><input id="editButton" name="edit" type="button" value="Edit"></td>
+			<td><input id="deleteButton" name="delete" type="submit" value="Delete"></td>
 		</tr>
 	</table>
 </form>
