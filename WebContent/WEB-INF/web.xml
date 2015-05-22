@@ -14,7 +14,6 @@
     <servlet-name>BicycleServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-  <!-- Controllers -->
   <servlet>
     <description>Bicycle controller</description>
     <display-name>BicycleController</display-name>
@@ -24,5 +23,5 @@
   <servlet-mapping>
     <servlet-name>BicycleController</servlet-name>
     <url-pattern>/edit</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping>  
 </web-app>
