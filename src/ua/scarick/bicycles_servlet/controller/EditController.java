@@ -1,27 +1,23 @@
-package ua.scarick.bicycles_servlet.servlet;
+package ua.scarick.bicycles_servlet.controller;
 
 import java.io.IOException;
-import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ua.scarick.bicycles_servlet.entity.BicycleStorage;
-
-
 /**
- * Servlet implementation class BicycleServlet
+ * Servlet implementation class EditController
  */
-public class BicycleServlet extends HttpServlet {
+public class EditController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BicycleServlet() {
+    public EditController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,20 +27,10 @@ public class BicycleServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		EntityManagerFactory emf = (EntityManagerFactory) getServletContext().getAttribute("emf");
-		EntityManager em = emf.createEntityManager();
-		
-		try {
-		// Display List of bicycles
-		List<BicycleStorage> bicycleStorageList = em.createQuery(
-				"SELECT b FROM BicycleStorage b",
-				BicycleStorage.class).getResultList();
-		request.setAttribute("bicycleStorageList", bicycleStorageList);
-		request.getRequestDispatcher("WEB-INF/jsp/bicycle.jsp").forward(request, response);
-		} finally {
-			if (em.getTransaction().isActive()) em.getTransaction().rollback();
-			em.close();
-		}
+		response.setContentType("text/html");
+		PrintWriter writer = response.getWriter();
+		writer.print("Hello Scarick!");
+		request.getRequestDispatcher("WEB-INF/jsp/edit.jsp").forward(request, response);
 	}
 
 	/**

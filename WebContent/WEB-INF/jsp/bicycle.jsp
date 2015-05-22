@@ -9,7 +9,7 @@
 <title>Bisyscle Storage</title>
 </head>
 <body>
-<form name="mainForm" method="post" action=>	 
+<form name="mainForm" method="post" action="/bicycles_servlet/edit">	 
 	<table border="1">		
 		<tr>
 			<th></th>
@@ -34,7 +34,7 @@
 	</table> 
 	<table>
 		<tr>
-			<td><input id="refreshButton" name="refresh" type="button" value="Refresh"></td>
+			<td><input id="refreshButton" name="refresh" type="button" value="Refresh" onclick=""></td>
 			<td><input id="editButton" name="edit" type="submit" value="Edit"></td>
 			<td><input id="deleteButton" name="delete" type="button" value="Delete"></td>
 		</tr>
