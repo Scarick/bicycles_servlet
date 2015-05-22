@@ -39,7 +39,7 @@ public class BicycleServlet extends HttpServlet {
 		List<BicycleStorage> bicycleStorageList = em.createQuery(
 				"SELECT b FROM BicycleStorage b",
 				BicycleStorage.class).getResultList();
-		request.setAttribute("bicycles", bicycleStorageList);
+		request.setAttribute("bicycleStorageList", bicycleStorageList);
 		request.getRequestDispatcher("WEB-INF/jsp/bicycle.jsp").forward(request, response);;
 		} finally {
 			if (em.getTransaction().isActive()) em.getTransaction().rollback();

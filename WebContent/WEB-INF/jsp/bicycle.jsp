@@ -6,16 +6,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Должны показываться велосипеды</title>
+<title>Bisyscle Storage</title>
 </head>
 <body>
 	 
-	<table>
-	<c:forEach var="bicycles" items="${bicycles}">
+	<table border="1">		
+	<c:forEach var="bicycles" items="${bicycleStorageList}">
 		<tr>
+			<td>${bicycles.id}</td>
 			<td>${bicycles.manufacturer}</td>
 			<td>${bicycles.model}</td>
+			<td>${bicycles.gender}</td>
 			<td>${bicycles.amount}</td>
+			<td>${bicycles.lastCheck}</td>
 		</tr>
 	</c:forEach>
 	</table> 
