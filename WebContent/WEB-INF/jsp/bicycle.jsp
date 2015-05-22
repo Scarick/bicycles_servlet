@@ -32,7 +32,13 @@
 		</tr>
 	</c:forEach>
 	</table> 
-	
+	<table>
+		<tr>
+			<td><input id="refreshButton" name="refresh" type="button" value="Refresh"></td>
+			<td><input id="editButton" name="edit" type="submit" value="Edit"></td>
+			<td><input id="deleteButton" name="delete" type="button" value="Delete"></td>
+		</tr>
+	</table>
 </form>
 </body>
 </html>
