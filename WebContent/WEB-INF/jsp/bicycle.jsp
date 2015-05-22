@@ -11,8 +11,18 @@
 <body>
 	 
 	<table border="1">		
+		<tr>
+			<th></th>
+			<th>ID</th>
+			<th>Manufacturer</th>
+			<th>Model</th>
+			<th>Gender</th>
+			<th>Amount</th>
+			<th>Last check date</th>
+		</tr>
 	<c:forEach var="bicycles" items="${bicycleStorageList}">
 		<tr>
+			<td><input type="checkbox" name="bicycleId" value="${bicycles.id}"></td>
 			<td>${bicycles.id}</td>
 			<td>${bicycles.manufacturer}</td>
 			<td>${bicycles.model}</td>
