@@ -1,8 +1,9 @@
 package ua.scarick.bicycles_servlet.servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
+import java.io.PrintWriter;
+import java.util.Enumeration;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -11,20 +12,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-import ua.scarick.bicycles_servlet.entity.BicycleStorage;
-
-
 /**
- * Servlet implementation class BicycleServlet
+ * Servlet implementation class AddServlet
  */
-public class BicycleServlet extends HttpServlet {
+public class AddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BicycleServlet() {
+    public AddServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,24 +31,15 @@ public class BicycleServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		EntityManagerFactory emf = (EntityManagerFactory) getServletContext().getAttribute("emf");
-		EntityManager em = emf.createEntityManager();	
+//		EntityManagerFactory emf = (EntityManagerFactory) getServletContext().getAttribute("emf");
+//		EntityManager em = emf.createEntityManager();		
+		// Get DAO object
+//		BicycleDAOInterface bicycleDao = DaoFactory.getBicycleDAO(em);
 		
-		List<BicycleStorage> bicycleStorageList = em.createQuery(
-				"SELECT b FROM BicycleStorage b",
-				BicycleStorage.class).getResultList();
+			
+		Map addedBicycleParameters = request.getParameterMap();
+
 		
-		
-		try {
-		
-			request.setAttribute("bicycleStorageList", bicycleStorageList);
-			request.getRequestDispatcher("WEB-INF/jsp/bicycle.jsp").forward(request, response);
-		
-		
-		} finally {
-			if (em.getTransaction().isActive()) em.getTransaction().rollback();
-			em.close();
-		}
 	}
 
 	/**

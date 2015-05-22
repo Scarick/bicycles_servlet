@@ -7,6 +7,6 @@
 <title>Edit item</title>
 </head>
 <body>
-test
+edit.jsp
 </body>
 </html>

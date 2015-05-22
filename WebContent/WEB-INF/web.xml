@@ -23,5 +23,15 @@
   <servlet-mapping>
     <servlet-name>BicycleController</servlet-name>
     <url-pattern>/edit</url-pattern>
-  </servlet-mapping>  
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddServlet</display-name>
+    <servlet-name>AddServlet</servlet-name>
+    <servlet-class>ua.scarick.bicycles_servlet.servlet.AddServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddServlet</servlet-name>
+    <url-pattern>/add</url-pattern>
+  </servlet-mapping>
 </web-app>

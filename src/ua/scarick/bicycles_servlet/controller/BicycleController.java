@@ -1,7 +1,6 @@
 package ua.scarick.bicycles_servlet.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -26,8 +25,14 @@ public class BicycleController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub		
-		request.getRequestDispatcher("WEB-INF/jsp/edit.jsp").forward(request, response);
+		
+		// Get array of checked items
+		String[] checkedBicycle = request.getParameterValues("checkedBicycle");
+		if (checkedBicycle.length == 1) {
+			request.getRequestDispatcher("WEB-INF/jsp/edit.jsp").forward(request, response);
+		} else if (checkedBicycle.length > 1) {
+			request.getRequestDispatcher("WEB-INF/jsp/add.jsp").forward(request, response);
+		} 
 	}
 
 	/**
