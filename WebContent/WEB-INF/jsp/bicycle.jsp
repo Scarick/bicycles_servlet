@@ -9,7 +9,7 @@
 <title>Bisyscle Storage</title>
 </head>
 <body>
-	 
+<form name="mainForm" method="post" action=>	 
 	<table border="1">		
 		<tr>
 			<th></th>
@@ -32,6 +32,7 @@
 		</tr>
 	</c:forEach>
 	</table> 
-
+	
+</form>
 </body>
 </html>
