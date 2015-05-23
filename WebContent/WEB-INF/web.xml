@@ -3,32 +3,22 @@
   <display-name>bicycles_servlet</display-name>
   <servlet>
     <description></description>
-    <display-name>BicycleServlet</display-name>
-    <servlet-name>BicycleServlet</servlet-name>
-    <servlet-class>ua.scarick.bicycles.servlet.BicycleServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>BicycleServlet</servlet-name>
-    <url-pattern>/</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description>Bicycle controller</description>
     <display-name>BicycleController</display-name>
     <servlet-name>BicycleController</servlet-name>
     <servlet-class>ua.scarick.bicycles.controller.BicycleController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>BicycleController</servlet-name>
-    <url-pattern>/edit</url-pattern>
-  </servlet-mapping>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>  
   <servlet>
     <description></description>
-    <display-name>AddServlet</display-name>
-    <servlet-name>AddServlet</servlet-name>
-    <servlet-class>ua.scarick.bicycles.servlet.AddServlet</servlet-class>
+    <display-name>EditController</display-name>
+    <servlet-name>EditController</servlet-name>
+    <servlet-class>ua.scarick.bicycles.controller.EditController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>AddServlet</servlet-name>
-    <url-pattern>/add</url-pattern>
+    <servlet-name>EditController</servlet-name>
+    <url-pattern>/edit</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -13,10 +13,6 @@ public class MySqlDaoFactory implements DaoFactory {
 	private String dburl;
 	private String user;
 	private String password;
-//	private String driver = "com.mysql.jdbc.Driver";
-//	private String dburl = "jdbc:mysql://localhost:3306/akvelon";
-//	private String user = "Akvelon";
-//	private String password = "Akvelon";
 	
 	public MySqlDaoFactory() throws FileNotFoundException, IOException {
 		

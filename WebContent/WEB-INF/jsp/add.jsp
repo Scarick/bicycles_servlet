@@ -40,7 +40,7 @@ function back() {
 	
 	<table>
 		<tr>
-			<td><input id="saveButton" name="save" type="submit" value="Save" onclick=""></td>
+			<td><input id="addButton" name="add" type="submit" value="Add" onclick=""></td>
 			<td><input id="cancelButton" name="cancel" type="button" value="Cancel" onclick="back();"></td>			
 		</tr>
 	</table>
