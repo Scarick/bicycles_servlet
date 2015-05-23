@@ -16,7 +16,7 @@ function validateForm(form) {
 <title>Bisyscle Storage</title>
 </head>
 <body>
-<form name="mainForm" method="post" action="/bicycles_servlet/edit" onsubmit="return confirm("Are you sure?");">	 
+<form name="mainForm" method="post" action="/bicycles_servlet/edit" onsubmit="return confirm('Are you sure?')">	 
 	<table border="1" id="bicycles">
 		<thead>		
 		<tr>
