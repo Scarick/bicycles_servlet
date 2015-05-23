@@ -5,7 +5,7 @@
     <description></description>
     <display-name>BicycleServlet</display-name>
     <servlet-name>BicycleServlet</servlet-name>
-    <servlet-class>ua.scarick.bicycles_servlet.servlet.BicycleServlet</servlet-class>
+    <servlet-class>ua.scarick.bicycles.servlet.BicycleServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>BicycleServlet</servlet-name>
@@ -15,7 +15,7 @@
     <description>Bicycle controller</description>
     <display-name>BicycleController</display-name>
     <servlet-name>BicycleController</servlet-name>
-    <servlet-class>ua.scarick.bicycles_servlet.controller.BicycleController</servlet-class>
+    <servlet-class>ua.scarick.bicycles.controller.BicycleController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>BicycleController</servlet-name>
@@ -25,7 +25,7 @@
     <description></description>
     <display-name>AddServlet</display-name>
     <servlet-name>AddServlet</servlet-name>
-    <servlet-class>ua.scarick.bicycles_servlet.servlet.AddServlet</servlet-class>
+    <servlet-class>ua.scarick.bicycles.servlet.AddServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AddServlet</servlet-name>
