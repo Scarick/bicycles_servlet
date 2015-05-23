@@ -1,7 +1,6 @@
 package ua.scarick.bicycles_servlet.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
 
 
@@ -9,22 +8,15 @@ import java.util.Date;
  * The persistent class for the bicycle_storage database table.
  * 
  */
-@Entity
-@Table(name="bicycle_storage")
-@NamedQuery(name="BicycleStorage.findAll", query="SELECT b FROM BicycleStorage b")
 public class BicycleStorage implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 
 	private int amount;
 
 	private String gender;
 
-	@Temporal(TemporalType.DATE)
-	@Column(name="last_check")
 	private Date lastCheck;
 
 	private String manufacturer;

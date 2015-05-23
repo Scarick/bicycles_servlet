@@ -14,11 +14,15 @@ public class MySqlDaoFactory implements DaoFactory {
 	private String dburl;
 	private String user;
 	private String password;
+//	private String driver = "com.mysql.jdbc.Driver";
+//	private String dburl = "jdbc:mysql://localhost:3306/akvelon";
+//	private String user = "Akvelon";
+//	private String password = "Akvelon";
 	
 	public MySqlDaoFactory() throws FileNotFoundException, IOException {
 		
 		Properties prop = new Properties();
-		prop.load(new FileInputStream("connection.properties"));
+		prop.load(getClass().getResourceAsStream("/connection.properties"));
 		driver = prop.getProperty("driver");
 		dburl = prop.getProperty("dburl");
 		user = prop.getProperty("user");

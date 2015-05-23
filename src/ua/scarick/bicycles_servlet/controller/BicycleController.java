@@ -28,11 +28,11 @@ public class BicycleController extends HttpServlet {
 		
 		// Get array of checked items
 		String[] checkedBicycle = request.getParameterValues("checkedBicycle");
-		if (checkedBicycle.length == 1) {
-			request.getRequestDispatcher("WEB-INF/jsp/edit.jsp").forward(request, response);
-		} else if (checkedBicycle.length > 1) {
+		if (checkedBicycle == null) {
 			request.getRequestDispatcher("WEB-INF/jsp/add.jsp").forward(request, response);
-		} 
+		} else if (checkedBicycle.length == 1) {
+			request.getRequestDispatcher("WEB-INF/jsp/edit.jsp").forward(request, response);
+		}
 	}
 
 	/**

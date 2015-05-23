@@ -7,12 +7,18 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<script>
+function validateForm(form) {
+	alert()
+	
+}
+</script>
 <title>Bisyscle Storage</title>
 </head>
 <body>
-<form name="mainForm" method="post" action="/bicycles_servlet/edit">	 
-	<table border="1">		
+<form name="mainForm" method="post" action="/bicycles_servlet/edit" onsubmit="return confirm("Are you sure?");">	 
+	<table border="1" id="bicycles">
+		<thead>		
 		<tr>
 			<th></th>
 			<th>ID</th>
@@ -22,17 +28,20 @@
 			<th>Amount</th>
 			<th>Last check date</th>
 		</tr>
-	<c:forEach var="bicycles" items="${bicycleStorageList}">
-		<tr>
-			<td><input type="checkbox" name="checkedBicycle" value="${bicycles.id}"></td>
-			<td>${bicycles.id}</td>
-			<td>${bicycles.manufacturer}</td>
-			<td>${bicycles.model}</td>
-			<td>${bicycles.gender}</td>
-			<td>${bicycles.amount}</td>
-			<td>${bicycles.lastCheck}</td>
-		</tr>
-	</c:forEach>
+		</thead>
+		<tbody>
+			<c:forEach var="bicycles" items="${bicycleStorageList}">
+				<tr>
+					<td><input type="checkbox" name="checkedBicycle" value="${bicycles.id}"></td>
+					<td>${bicycles.id}</td>
+					<td>${bicycles.manufacturer}</td>
+					<td>${bicycles.model}</td>
+					<td>${bicycles.gender}</td>
+					<td>${bicycles.amount}</td>
+					<td>${bicycles.lastCheck}</td>
+				</tr>
+			</c:forEach>
+		</tbody>
 	</table> 
 	<table>
 		<tr>

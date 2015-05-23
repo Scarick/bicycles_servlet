@@ -5,6 +5,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script type="text/javascript">
+function back() {
+	document.location.href = "/bicycles_servlet";	
+}
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Add item</title>
 </head>
@@ -36,7 +41,7 @@
 	<table>
 		<tr>
 			<td><input id="saveButton" name="save" type="submit" value="Save" onclick=""></td>
-			<td><input id="cancelButton" name="cancel" type="button" value="Cancel"></td>			
+			<td><input id="cancelButton" name="cancel" type="button" value="Cancel" onclick="back();"></td>			
 		</tr>
 	</table>
 </form>

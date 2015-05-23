@@ -1,12 +1,8 @@
 package ua.scarick.bicycles_servlet.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Enumeration;
 import java.util.Map;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,16 +26,10 @@ public class AddServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-//		EntityManagerFactory emf = (EntityManagerFactory) getServletContext().getAttribute("emf");
-//		EntityManager em = emf.createEntityManager();		
-		// Get DAO object
-//		BicycleDAOInterface bicycleDao = DaoFactory.getBicycleDAO(em);
-		
-			
+				
 		Map addedBicycleParameters = request.getParameterMap();
-
 		
+//		request.getRequestDispatcher("/").forward(request, response);
 	}
 
 	/**

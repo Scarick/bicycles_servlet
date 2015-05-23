@@ -1,17 +1,18 @@
 package ua.scarick.bicycles_servlet.servlet;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+import ua.scarick.bicycles_servlet.dao.BicycleDAO;
+import ua.scarick.bicycles_servlet.dao.DaoFactory;
+import ua.scarick.bicycles_servlet.dao.MySqlDaoFactory;
 import ua.scarick.bicycles_servlet.entity.BicycleStorage;
 
 
@@ -32,25 +33,23 @@ public class BicycleServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		EntityManagerFactory emf = (EntityManagerFactory) getServletContext().getAttribute("emf");
-		EntityManager em = emf.createEntityManager();	
-		
-		List<BicycleStorage> bicycleStorageList = em.createQuery(
-				"SELECT b FROM BicycleStorage b",
-				BicycleStorage.class).getResultList();
-		
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+			
 		try {
+			DaoFactory daoFactory = new MySqlDaoFactory();
+			Connection connection = daoFactory.getConnection();
+			BicycleDAO bicycleDao = daoFactory.getBicycleDAO(connection);
+			List<BicycleStorage> bicycleStorageList = bicycleDao.getAllBicycles();
 		
 			request.setAttribute("bicycleStorageList", bicycleStorageList);
 			request.getRequestDispatcher("WEB-INF/jsp/bicycle.jsp").forward(request, response);
 		
 		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} finally {
-			if (em.getTransaction().isActive()) em.getTransaction().rollback();
-			em.close();
+			
 		}
 	}
 
