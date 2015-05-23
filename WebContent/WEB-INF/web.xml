@@ -10,7 +10,7 @@
   <servlet-mapping>
     <servlet-name>BicycleController</servlet-name>
     <url-pattern>/</url-pattern>
-  </servlet-mapping>  
+  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>EditController</display-name>
@@ -20,5 +20,5 @@
   <servlet-mapping>
     <servlet-name>EditController</servlet-name>
     <url-pattern>/edit</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping>  
 </web-app>

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class EditController
  */
-public class EditController extends HttpServlet {
+public class EditController extends ParentController {
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -32,13 +32,4 @@ public class EditController extends HttpServlet {
 			request.getRequestDispatcher("WEB-INF/jsp/edit.jsp").forward(request, response);
 		}
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }
