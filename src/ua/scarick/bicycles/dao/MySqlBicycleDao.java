@@ -46,7 +46,7 @@ public class MySqlBicycleDao implements BicycleDAO {
 	@Override
 	public BicycleStorage getBicycle(int id) throws SQLException {
 		
-		String query = "SELECT * FROM akvelon.bicycle_storage WHERE id=?;";
+		String query = "SELECT * FROM akvelon.bicycle_storage WHERE id=?";
 		PreparedStatement statement = connection.prepareStatement(query);
 		
 		statement.setInt(1, id);
@@ -54,6 +54,7 @@ public class MySqlBicycleDao implements BicycleDAO {
 		ResultSet rs = statement.executeQuery();
 		
 		BicycleStorage bicycle = new BicycleStorage();
+		
 		bicycle.setId(rs.getInt("id"));
 		bicycle.setManufacturer(rs.getString("manufacturer"));
 		bicycle.setModel(rs.getString("model"));
