@@ -41,7 +41,7 @@ public class ParentController extends HttpServlet {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} 	
 		
 		bicycleDao = daoFactory.getBicycleDAO(connection);
     }	

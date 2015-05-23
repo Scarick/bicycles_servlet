@@ -8,15 +8,24 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script>
-function validateForm(form) {
-	alert()
-	
+function validateForm(checkedBicycle) {
+	var checkboxes = document.getElementsByName(checkedBicycle);
+	var checkboxesChecked = [];
+	for (var i = 0; i < checkboxes.length; i++ ) {
+		if (checkboxes[i].checked) {
+			checkboxesChecked.push(checkboxes[i])
+		}
+	}
+		if (checkboxesChecked.length > 1) {
+			alert("Please, select just one row to be edited.");
+			return false;
+	}	
 }
 </script>
 <title>Bisyscle Storage</title>
 </head>
 <body>
-<form name="mainForm" method="post" action="/bicycles_servlet/edit" >	 
+<form name="mainForm" method="post" action="/bicycles_servlet/edit" onsubmit=" return validateForm('checkedBicycle');">	 
 	<table border="1" id="bicycles">
 		<thead>		
 		<tr>
