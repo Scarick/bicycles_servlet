@@ -27,9 +27,10 @@ public class EditController extends ParentController {
 		// Get array of checked items
 		String[] checkedBicycle = request.getParameterValues("checkedBicycle");
 		if (checkedBicycle == null) {
-			request.getRequestDispatcher("WEB-INF/jsp/add.jsp").forward(request, response);
+			request.setAttribute("bicycleID", null);			
 		} else if (checkedBicycle.length == 1) {
-			request.getRequestDispatcher("WEB-INF/jsp/edit.jsp").forward(request, response);
+			request.setAttribute("bicycleID", checkedBicycle[0]);			
 		}
+		request.getRequestDispatcher("WEB-INF/jsp/edit.jsp").forward(request, response);
 	}
 }

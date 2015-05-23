@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/jsp/include.jsp" %>
 <%@page import="ua.scarick.bicycles.entity.*"%>
+<c:set var="bicycleID" value="${bicycleID}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -40,7 +41,7 @@ function back() {
 	
 	<table>
 		<tr>
-			<td><input id="saveButton" name="save" type="submit" value="Save" onclick=""></td>
+			<td><input id="saveButton" name="save" type="submit" value= "${bicycleID == null ? 'Add' : 'Save'}" onclick=""></td>
 			<td><input id="cancelButton" name="cancel" type="button" value="Cancel" onclick="back();"></td>			
 		</tr>
 	</table>
