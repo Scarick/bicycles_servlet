@@ -32,12 +32,14 @@ public class EditController extends ParentController {
 		bicycleDao = daoFactory.getMySqlBicycleDAO(connection);
 		// Get array of checked items
 		String[] checkedBicycle = request.getParameterValues("checkedBicycle");
+		
 		if (checkedBicycle == null) {
 			request.setAttribute("bicycleID", null);			
-		} else if (checkedBicycle.length == 1) {
+		} else if (checkedBicycle.length == 1) {			
 			try {
 				// Get bicycle with checked id
 				BicycleStorage bicycle = bicycleDao.getBicycle(Integer.parseInt(checkedBicycle[0]));
+				
 				request.setAttribute("bicycle", bicycle);
 			} catch (NumberFormatException e) {				
 				e.printStackTrace();

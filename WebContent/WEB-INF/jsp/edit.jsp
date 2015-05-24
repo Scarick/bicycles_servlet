@@ -19,6 +19,10 @@ function back() {
 	<form name="mainForm" method="post" action="/bicycles_servlet/add">
 	<table>
 		<tr>
+			<td></td>
+			<td><input type="hidden" name="id" value="${bicycleEntity.id}"/></td>
+		</tr>
+		<tr>
 			<td>${bicycleID == null ? 'Enter' : 'Edit'} Manufacturer</td>
 			<td><input type="text" name="manufacturer"  value="${bicycleEntity.manufacturer}"/></td>
 		</tr>
@@ -36,7 +40,7 @@ function back() {
 		</tr>
 		<tr>
 			<td>${bicycleID == null ? 'Choose' : 'Edit'} date of last check:</td>
-			<td><input type="text" name="date" value="${bicycleEntity.lastCheck}"/></td>
+			<td><input type="text" name="lastCheck" value="${bicycleEntity.lastCheck}"/></td>
 		</tr>		
 	</table> 
 	

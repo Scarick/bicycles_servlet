@@ -4,11 +4,15 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import ua.scarick.bicycles.dao.DaoFactory;
 import ua.scarick.bicycles.dao.MySqlDaoFactory;
 
@@ -18,7 +22,7 @@ import ua.scarick.bicycles.dao.MySqlDaoFactory;
 public class ParentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected DaoFactory daoFactory;
-	protected Connection connection;
+	protected Connection connection;	
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -48,6 +52,19 @@ public class ParentController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		doGet(request, response);
+	}
+	
+	public Date dateFormat(String s) {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = null;
+		try {
+			date = format.parse(s);
+			
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return date;		
 	}
 
 }

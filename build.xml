@@ -32,20 +32,7 @@
         <pathelement location="WebContent/WEB-INF/lib/jstl-api-1.2.jar"/>
         <pathelement location="WebContent/WEB-INF/lib/mysql-connector-java-5.1.34-bin.jar"/>
         <pathelement location="WebContent/WEB-INF/lib/standard.jar"/>
-    </path>
-    <path id="EAR Libraries.libraryclasspath"/>
-    <path id="EclipseLink 2.5.2.userclasspath">
-        <pathelement location="../libraries/EclipseLink 2.5.2/eclipselink/jlib/eclipselink.jar"/>
-        <pathelement location="../libraries/EclipseLink 2.5.2/eclipselink/jlib/jpa/javax.persistence_2.1.0.v201304241213.jar"/>
-        <pathelement location="../libraries/EclipseLink 2.5.2/eclipselink/jlib/jpa/org.eclipse.persistence.jpa.modelgen_2.5.2.v20140319-9ad6abd.jar"/>
-        <pathelement location="../libraries/EclipseLink 2.5.2/eclipselink/jlib/jpa/org.eclipse.persistence.jpars_2.5.2.v20140319-9ad6abd.jar"/>
-        <pathelement location="../libraries/EclipseLink 2.5.2/eclipselink/jlib/moxy/com.sun.tools.xjc_2.2.0.jar"/>
-        <pathelement location="../libraries/EclipseLink 2.5.2/eclipselink/jlib/moxy/com.sun.xml.bind_2.2.0.v201004141950.jar"/>
-        <pathelement location="../libraries/EclipseLink 2.5.2/eclipselink/jlib/moxy/javax.activation_1.1.0.v201108011116.jar"/>
-        <pathelement location="../libraries/EclipseLink 2.5.2/eclipselink/jlib/moxy/javax.mail_1.4.0.v201005080615.jar"/>
-        <pathelement location="../libraries/EclipseLink 2.5.2/eclipselink/jlib/moxy/javax.xml.bind_2.2.0.v201105210648.jar"/>
-        <pathelement location="../libraries/EclipseLink 2.5.2/eclipselink/jlib/moxy/javax.xml.stream_1.0.1.v201004272200.jar"/>
-    </path>
+    </path>    
     <path id="MySQL JDBC Driver.libraryclasspath">
         <pathelement location="C:/Program Files (x86)/MySQL/Connector.J 5.1/mysql-connector-java-5.1.34-bin.jar"/>
     </path>

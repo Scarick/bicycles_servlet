@@ -31,4 +31,14 @@
     <servlet-name>DeleteController</servlet-name>
     <url-pattern>/delete</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddSaveController</display-name>
+    <servlet-name>AddController</servlet-name>
+    <servlet-class>ua.scarick.bicycles.controller.AddController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddController</servlet-name>
+    <url-pattern>/add</url-pattern>
+  </servlet-mapping>
 </web-app>

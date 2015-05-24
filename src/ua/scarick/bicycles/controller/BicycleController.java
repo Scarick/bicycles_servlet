@@ -18,6 +18,7 @@ import ua.scarick.bicycles.entity.BicycleStorage;
  */
 public class BicycleController extends ParentController {
 	private static final long serialVersionUID = 1L;
+	
 	private BicycleDAO bicycleDao;
        
     /**

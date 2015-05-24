@@ -7,9 +7,8 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script language="JavaScript" ty>
-
-//Get array of checked items 
+<script type="text/javascript">
+//Return array of checked items
 function getChecked(checkedBicycle) {
 	var checkboxes = document.getElementsByName(checkedBicycle);
 	var checkboxesChecked = [];
@@ -31,11 +30,10 @@ function validateForm(checkedBicycle) {
 // Delete checked items
 function deleteChecked(checkedBicycle) {
 	var checkboxesChecked = getChecked(checkedBicycle);
-	
+	var jsonCheckboxesChecked = JSON.stringify(checkboxesChecked);
 }
-
 </script>
-<title>Bisyscle Storage</title>
+<title>Bicycle Storage</title>
 </head>
 <body>
 <form name="mainForm" method="post" action="/bicycles_servlet/edit" onsubmit=" return validateForm('checkedBicycle');">	 
@@ -60,7 +58,7 @@ function deleteChecked(checkedBicycle) {
 					<td>${bicycles.model}</td>
 					<td>${bicycles.gender}</td>
 					<td>${bicycles.amount}</td>
-					<td>${bicycles.lastCheck}</td>
+					<td>${bicycles.lastCheck}</td>					
 				</tr>
 			</c:forEach>
 		</tbody>
