@@ -1,7 +1,6 @@
 package ua.scarick.bicycles.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -93,7 +92,7 @@ public class MySqlBicycleDao implements BicycleDAO {
 		statement.setString(2, bicycle.getModel());
 		statement.setString(3, bicycle.getGender());
 		statement.setInt(4, bicycle.getAmount());
-		statement.setDate(5, (Date) bicycle.getLastCheck());
+		statement.setDate(5, new java.sql.Date(bicycle.getLastCheck().getTime()));
 		statement.setInt(6, bicycle.getId());
 		
 		statement.executeUpdate();		

@@ -29,7 +29,7 @@ public class EditController extends ParentController {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		bicycleDao = daoFactory.getMySqlBicycleDAO(connection);
+		bicycleDao = getDao();
 		// Get array of checked items
 		String[] checkedBicycle = request.getParameterValues("checkedBicycle");
 		

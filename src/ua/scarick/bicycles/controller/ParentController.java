@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ua.scarick.bicycles.dao.BicycleDAO;
 import ua.scarick.bicycles.dao.DaoFactory;
 import ua.scarick.bicycles.dao.MySqlDaoFactory;
 
@@ -31,8 +32,10 @@ public class ParentController extends HttpServlet {
         super();
      // Get bicycleDao
         try {
+        	
 			daoFactory = new MySqlDaoFactory();
 			connection = daoFactory.getConnection();
+			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -65,6 +68,11 @@ public class ParentController extends HttpServlet {
 			e.printStackTrace();
 		}
 		return date;		
+	}
+	
+	
+	public BicycleDAO getDao() {
+		return daoFactory.getMySqlBicycleDAO(connection);		
 	}
 
 }

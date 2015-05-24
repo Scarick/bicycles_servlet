@@ -2,7 +2,7 @@ package ua.scarick.bicycles.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -30,13 +30,15 @@ public class AddController extends ParentController {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				
-		String editedBicycle = request.getParameter("id");	
+		
+		bicycleDao = getDao();			
+			
 		PrintWriter out = response.getWriter();
-		if (editedBicycle.isEmpty()) {	
+		if (request.getParameter("id").isEmpty()) {	
 			try {
 				
 				BicycleStorage bicycle = new BicycleStorage();
+				bicycle.setId(Integer.parseInt(request.getParameter("id")));
 				bicycle.setManufacturer(request.getParameter("manufacturer"));
 				bicycle.setModel(request.getParameter("model"));
 				bicycle.setGender(request.getParameter("gender"));
@@ -55,6 +57,8 @@ public class AddController extends ParentController {
 			try {
 			
 				BicycleStorage bicycle = new BicycleStorage();
+				
+				bicycle.setId(Integer.parseInt(request.getParameter("id")));
 				bicycle.setManufacturer(request.getParameter("manufacturer"));
 				bicycle.setModel(request.getParameter("model"));
 				bicycle.setGender(request.getParameter("gender"));
@@ -70,7 +74,7 @@ public class AddController extends ParentController {
 			}
 		}
 		
-//		request.getRequestDispatcher("/").forward(request, response);
+		request.getRequestDispatcher("/").forward(request, response);;
 	}
 
 	
