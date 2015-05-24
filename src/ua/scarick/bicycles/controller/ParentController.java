@@ -9,8 +9,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import ua.scarick.bicycles.dao.BicycleDAO;
 import ua.scarick.bicycles.dao.DaoFactory;
 import ua.scarick.bicycles.dao.MySqlDaoFactory;
 
@@ -21,7 +19,6 @@ public class ParentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected DaoFactory daoFactory;
 	protected Connection connection;
-	protected BicycleDAO bicycleDao;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -41,9 +38,8 @@ public class ParentController extends HttpServlet {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 	
+		}	
 		
-		bicycleDao = daoFactory.getBicycleDAO(connection);
     }	
 
 	/**

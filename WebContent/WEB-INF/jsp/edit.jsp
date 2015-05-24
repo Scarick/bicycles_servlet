@@ -19,24 +19,24 @@ function back() {
 	<form name="mainForm" method="post" action="/bicycles_servlet/add">
 	<table>
 		<tr>
-			<td>Enter Manufacturer:</td>
-			<td><input type="text" name="manufacturer"  value=""/></td>
+			<td>${bicycleID == null ? 'Enter' : 'Edit'} Manufacturer</td>
+			<td><input type="text" name="manufacturer"  value="${bicycleEntity.manufacturer}"/></td>
 		</tr>
 		<tr>
-			<td>Enter Model:</td>
-			<td><input type="text" name="model" value=""/></td>
+			<td>${bicycleID == null ? 'Enter' : 'Edit'} Model:</td>
+			<td><input type="text" name="model" value="${bicycleEntity.model}"/></td>
 		</tr>
 		<tr>
-			<td>Enter Gender(M, W or B):</td>
-			<td><input type="text" name="gender"/></td>
+			<td>${bicycleID == null ? 'Enter' : 'Edit'} Gender(M, W or B):</td>
+			<td><input type="text" name="gender" value="${bicycleEntity.gender}"/></td>
 		</tr>
 		<tr>
-			<td>Enter Amount:</td>
-			<td><input type="text" name="amount"/></td>
+			<td>${bicycleID == null ? 'Enter' : 'Edit'} Amount:</td>
+			<td><input type="text" name="amount" value="${bicycleEntity.amount}"/></td>
 		</tr>
 		<tr>
-			<td>Choose date of last check:</td>
-			<td><input type="text" name="date"/></td>
+			<td>${bicycleID == null ? 'Choose' : 'Edit'} date of last check:</td>
+			<td><input type="text" name="date" value="${bicycleEntity.lastCheck}"/></td>
 		</tr>		
 	</table> 
 	

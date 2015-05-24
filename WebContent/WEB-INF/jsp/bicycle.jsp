@@ -7,8 +7,10 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script>
-function validateForm(checkedBicycle) {
+<script language="JavaScript" ty>
+
+//Get array of checked items 
+function getChecked(checkedBicycle) {
 	var checkboxes = document.getElementsByName(checkedBicycle);
 	var checkboxesChecked = [];
 	for (var i = 0; i < checkboxes.length; i++ ) {
@@ -16,11 +18,22 @@ function validateForm(checkedBicycle) {
 			checkboxesChecked.push(checkboxes[i])
 		}
 	}
-		if (checkboxesChecked.length > 1) {
-			alert("Please, select just one row to be edited.");
-			return false;
+	return checkboxesChecked;
+}
+// If more than one items checked popup
+function validateForm(checkedBicycle) {
+	var checkboxesChecked = getChecked(checkedBicycle);
+	if (checkboxesChecked.length > 1) {
+		alert("Please, select just one row to be edited.");
+		return false;
 	}	
 }
+// Delete checked items
+function deleteChecked(checkedBicycle) {
+	var checkboxesChecked = getChecked(checkedBicycle);
+	
+}
+
 </script>
 <title>Bisyscle Storage</title>
 </head>
@@ -56,7 +69,7 @@ function validateForm(checkedBicycle) {
 		<tr>
 			<td><input id="refreshButton" name="refresh" type="button" value="Refresh" onclick=""></td>
 			<td><input id="editButton" name="edit" type="submit" value="Edit"></td>
-			<td><input id="deleteButton" name="delete" type="button" value="Delete"></td>
+			<td><input id="deleteButton" name="delete" type="button" value="Delete" onclick="deleteChecked('checkedBicycle')"></td>
 		</tr>
 	</table>
 </form>

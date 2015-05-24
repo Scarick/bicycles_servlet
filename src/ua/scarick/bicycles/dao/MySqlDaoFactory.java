@@ -38,7 +38,7 @@ public class MySqlDaoFactory implements DaoFactory {
 	}
 
 	@Override
-	public BicycleDAO getBicycleDAO(Connection connection) {
+	public BicycleDAO getMySqlBicycleDAO(Connection connection) {
 		
 		return new MySqlBicycleDao(connection);
 	}

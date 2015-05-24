@@ -7,5 +7,5 @@ public interface DaoFactory {
 	
 	public Connection getConnection() throws SQLException;
 	
-	public 	BicycleDAO getBicycleDAO(Connection connection);
+	public 	BicycleDAO getMySqlBicycleDAO(Connection connection);
 }

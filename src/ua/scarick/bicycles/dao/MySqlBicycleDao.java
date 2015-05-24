@@ -32,8 +32,11 @@ public class MySqlBicycleDao implements BicycleDAO {
 			bicycleStorage.setAmount(rs.getInt("amount"));
 			bicycleStorage.setLastCheck(rs.getDate("last_check"));
 			
-			bicycleList.add(bicycleStorage);
+			bicycleList.add(bicycleStorage);			
 		}
+		rs.close();
+		statement.close();
+		
 		return bicycleList;
 	}
 
@@ -54,14 +57,18 @@ public class MySqlBicycleDao implements BicycleDAO {
 		ResultSet rs = statement.executeQuery();
 		
 		BicycleStorage bicycle = new BicycleStorage();
-		
+		while (rs.next()) {
 		bicycle.setId(rs.getInt("id"));
 		bicycle.setManufacturer(rs.getString("manufacturer"));
 		bicycle.setModel(rs.getString("model"));
 		bicycle.setGender(rs.getString("gender"));
 		bicycle.setAmount(rs.getInt("amount"));
 		bicycle.setLastCheck(rs.getDate("last_check"));
-		return bicycle;
+		}
+		rs.close();
+		statement.close();
+		
+		return bicycle;		
 	}
 
 	@Override
@@ -91,4 +98,5 @@ public class MySqlBicycleDao implements BicycleDAO {
 		
 		statement.executeUpdate(query);
 	}
+	
 }

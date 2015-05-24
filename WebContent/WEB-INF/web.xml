@@ -20,5 +20,15 @@
   <servlet-mapping>
     <servlet-name>EditController</servlet-name>
     <url-pattern>/edit</url-pattern>
-  </servlet-mapping>  
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteController</display-name>
+    <servlet-name>DeleteController</servlet-name>
+    <servlet-class>ua.scarick.bicycles.controller.DeleteController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteController</servlet-name>
+    <url-pattern>/delete</url-pattern>
+  </servlet-mapping>
 </web-app>
