@@ -46,7 +46,7 @@ function back() {
 	
 	<table>
 		<tr>
-			<td><input id="saveButton" name="save" type="submit" value= "${bicycleID == null ? 'Add' : 'Save'}" onclick=""></td>
+			<td><input id="saveButton" name="save" type="submit" value= "${bicycleID == null ? 'Add' : 'Save'}"></td>
 			<td><input id="cancelButton" name="cancel" type="button" value="Cancel" onclick="back();"></td>			
 		</tr>
 	</table>

@@ -43,17 +43,16 @@ public class MySqlBicycleDao implements BicycleDAO {
 	@Override
 	public void createBicycle(BicycleStorage bicycle) throws SQLException {
 		
-		String query = "INSERT INTO akvelon.bicycle_storage VALUES (NULL, ?, ?, ?, ?, ?);";
+		String query = "INSERT INTO akvelon.bicycle_storage (manufacturer, model, gender, amount, last_check)"
+				+ " VALUES (?, ?, ?, ?, ?);";
 		PreparedStatement statement = connection.prepareStatement(query);
-		statement.setString(1, "manufacturer=" + bicycle.getManufacturer());
-		statement.setString(2, "model=" + bicycle.getModel());
-		statement.setString(3, "gender=" + bicycle.getGender());
-		statement.setString(4, "amount=" + bicycle.getAmount());
-		statement.setString(5, "last_check=" + bicycle.getLastCheck());
+		statement.setString(1, bicycle.getManufacturer());
+		statement.setString(2, bicycle.getModel());
+		statement.setString(3, bicycle.getGender());
+		statement.setInt(4, bicycle.getAmount());
+		statement.setDate(5, new java.sql.Date(bicycle.getLastCheck().getTime()));
 		
-		statement.executeUpdate(query);	
-		
-		statement.close();
+		statement.executeUpdate();					
 	}
 
 	@Override
@@ -106,7 +105,7 @@ public class MySqlBicycleDao implements BicycleDAO {
 		
 		statement.setInt(1, bicycle.getId());
 		
-		statement.executeUpdate(query);
+		statement.executeUpdate();
 	}
 	
 }

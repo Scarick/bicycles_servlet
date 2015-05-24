@@ -1,8 +1,6 @@
 package ua.scarick.bicycles.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -32,30 +30,29 @@ public class AddController extends ParentController {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		bicycleDao = getDao();			
-			
-		PrintWriter out = response.getWriter();
+		
 		if (request.getParameter("id").isEmpty()) {	
 			try {
-				
+				// Get bicycle parameters from form
 				BicycleStorage bicycle = new BicycleStorage();
-				bicycle.setId(Integer.parseInt(request.getParameter("id")));
+				
 				bicycle.setManufacturer(request.getParameter("manufacturer"));
 				bicycle.setModel(request.getParameter("model"));
 				bicycle.setGender(request.getParameter("gender"));
 				bicycle.setAmount(Integer.parseInt(request.getParameter("amount")));
 				bicycle.setLastCheck(dateFormat(request.getParameter("lastCheck")));
-			
-				out.print(bicycle);
-			
-//				bicycleDao.createBicycle(bicycle);				
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				
+				// Create new bicycle in DB
+				bicycleDao.createBicycle(bicycle);				
+				
+			} catch (Exception e) {				
 				e.printStackTrace();
 			}
 			
 		} else {
 			try {
 			
+				// Get bicycle parameters from form
 				BicycleStorage bicycle = new BicycleStorage();
 				
 				bicycle.setId(Integer.parseInt(request.getParameter("id")));
@@ -64,9 +61,8 @@ public class AddController extends ParentController {
 				bicycle.setGender(request.getParameter("gender"));
 				bicycle.setAmount(Integer.parseInt(request.getParameter("amount")));
 				bicycle.setLastCheck(dateFormat(request.getParameter("lastCheck")));
-			
-				out.print(bicycle);
-			
+				
+				// Update bicycle in DB
 				bicycleDao.updateBicycle(bicycle);
 				
 			} catch (Exception e) {			

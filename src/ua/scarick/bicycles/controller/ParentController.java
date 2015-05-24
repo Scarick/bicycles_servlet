@@ -74,5 +74,5 @@ public class ParentController extends HttpServlet {
 	public BicycleDAO getDao() {
 		return daoFactory.getMySqlBicycleDAO(connection);		
 	}
-
+	
 }
