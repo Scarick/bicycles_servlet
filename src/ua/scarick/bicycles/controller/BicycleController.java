@@ -40,7 +40,7 @@ public class BicycleController extends ParentController {
 		} catch (SQLException e) {			
 			e.printStackTrace();
 		}	
-		request.getRequestDispatcher("WEB-INF/jsp/bicycle.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/bicycle.jsp").forward(request, response);
 		
 	}	
 }

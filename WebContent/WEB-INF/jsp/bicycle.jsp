@@ -1,39 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/jsp/include.jsp" %>
-<%@page import="java.util.*,ua.scarick.bicycles.entity.*"%>
+<%@ page import="java.util.*,ua.scarick.bicycles.entity.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript">
-//Return array of checked items
-function getChecked(checkedBicycle) {
-	var checkboxes = document.getElementsByName(checkedBicycle);
-	var checkboxesChecked = [];
-	for (var i = 0; i < checkboxes.length; i++ ) {
-		if (checkboxes[i].checked) {
-			checkboxesChecked.push(checkboxes[i])
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	// Return array of checked items
+	function getChecked(checkedBicycle) {
+		var checkboxes = document.getElementsByName(checkedBicycle);
+		var checkboxesChecked = [];
+		for (var i = 0; i < checkboxes.length; i++ ) {
+			if (checkboxes[i].checked) {
+				checkboxesChecked.push(checkboxes[i].value)					
+			}
 		}
+		return checkboxesChecked;
 	}
-	return checkboxesChecked;
-}
-// If more than one items checked popup
-function validateForm(checkedBicycle) {
-	var checkboxesChecked = getChecked(checkedBicycle);
-	if (checkboxesChecked.length > 1) {
-		alert("Please, select just one row to be edited.");
-		return false;
-	}	
-}
-// Delete checked items
-function deleteChecked(checkedBicycle) {
-	var checkboxesChecked = getChecked(checkedBicycle);
-	var jsonCheckboxesChecked = JSON.stringify(checkboxesChecked);
-}
-</script>
-<title>Bicycle Storage</title>
+	// If more than one items checked popup
+	function validateForm(checkedBicycle) {
+		var checkboxesChecked = getChecked(checkedBicycle);
+		if (checkboxesChecked.length > 1) {
+			alert("Please, select just one row to be edited.");
+			return false;
+		}	
+	}
+	// Delete checked items
+	function deleteChecked(checkedBicycle) {
+		var checkboxesChecked = getChecked(checkedBicycle);
+		var checkedValues = [];		
+		var jsonCheckboxesChecked = JSON.stringify(checkboxesChecked);
+		alert(checkboxesChecked[0]);
+		$.post("/bicycles_servlet/delete", jsonCheckboxesChecked, function(response) {
+		    // handle response from your servlet.
+		    alert(response)
+		});
+	}
+	</script>
+	<title>Bicycle Storage</title>	
 </head>
 <body>
 <form name="mainForm" method="post" action="/bicycles_servlet/edit" onsubmit=" return validateForm('checkedBicycle');">	 

@@ -70,7 +70,8 @@ public class AddController extends ParentController {
 			}
 		}
 		
-		request.getRequestDispatcher("/").forward(request, response);;
+		response.sendRedirect(request.getContextPath());
+//		request.getRequestDispatcher("/").forward(request, response);;
 	}
 
 	

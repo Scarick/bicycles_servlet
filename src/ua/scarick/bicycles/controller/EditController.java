@@ -48,6 +48,6 @@ public class EditController extends ParentController {
 			}
 			request.setAttribute("bicycleID", checkedBicycle[0]);			
 		}
-		request.getRequestDispatcher("WEB-INF/jsp/edit.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/edit.jsp").forward(request, response);
 	}
 }
