@@ -48,4 +48,18 @@
     <servlet-name>AddController</servlet-name>
     <url-pattern>/add</url-pattern>
   </servlet-mapping>
+  
+  <!-- Filter for correct UTF-8 with DB -->
+    <filter>
+        <filter-name>setCharacterEncodingFilter</filter-name>
+        <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>        
+    </filter>
+    <filter-mapping>
+    	<filter-name>setCharacterEncodingFilter</filter-name>
+    	<url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

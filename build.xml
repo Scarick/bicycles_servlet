@@ -29,6 +29,7 @@
     </path>
     <path id="Web App Libraries.libraryclasspath">
         <pathelement location="WebContent/WEB-INF/lib/javax.servlet.jsp.jstl-api-1.2.1.jar"/>
+    	<pathelement location="WebContent/WEB-INF/lib/json-simple-1.1.1.jar"/>
         <pathelement location="WebContent/WEB-INF/lib/jstl-api-1.2.jar"/>
         <pathelement location="WebContent/WEB-INF/lib/mysql-connector-java-5.1.34-bin.jar"/>
         <pathelement location="WebContent/WEB-INF/lib/standard.jar"/>
