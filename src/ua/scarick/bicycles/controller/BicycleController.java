@@ -10,16 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ua.scarick.bicycles.dao.BicycleDAO;
 import ua.scarick.bicycles.entity.BicycleStorage;
 
 /**
  * Servlet implementation class EditController
  */
 public class BicycleController extends ParentController {
-	private static final long serialVersionUID = 1L;
-	
-	private BicycleDAO bicycleDao;
+	private static final long serialVersionUID = 1L;	
        
     /**
      * @see HttpServlet#HttpServlet()

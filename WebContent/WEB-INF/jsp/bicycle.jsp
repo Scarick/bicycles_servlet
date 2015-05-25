@@ -28,14 +28,19 @@
 	}
 	// Delete checked items
 	function deleteChecked(checkedBicycle) {
-		var checkboxesChecked = getChecked(checkedBicycle);
-		var checkedValues = [];		
-		var jsonCheckboxesChecked = JSON.stringify(checkboxesChecked);
-		alert(checkboxesChecked[0]);
-		$.post("/bicycles_servlet/delete", jsonCheckboxesChecked, function(response) {
-		    // handle response from your servlet.
-		    alert(response)
-		});
+		var checkboxesChecked = getChecked(checkedBicycle);		
+		if (!checkboxesChecked.isEmpty()) {
+			var jsonCheckboxesChecked = {jsonCheckboxesChecked : JSON.stringify(checkboxesChecked)};
+			if (confirm("Do you really want remove it?")) {
+				$.post("/bicycles_servlet/delete", jsonCheckboxesChecked, function(response) {
+		   		 // handle response
+				location.reload();
+		   		 });
+			}
+		}
+	}
+	function refresh() {
+		location.reload();
 	}
 	</script>
 	<title>Bicycle Storage</title>	
@@ -70,9 +75,9 @@
 	</table> 
 	<table>
 		<tr>
-			<td><input id="refreshButton" name="refresh" type="button" value="Refresh" onclick=""></td>
+			<td><input id="refreshButton" name="refresh" type="button" value="Refresh" onclick="refresh()"></td>
 			<td><input id="editButton" name="edit" type="submit" value="Edit"></td>
-			<td><input id="deleteButton" name="delete" type="button" value="Delete" onclick="deleteChecked('checkedBicycle')"></td>
+			<td><input id="deleteButton" name="delete" type="button" value="Delete" onclick="return deleteChecked('checkedBicycle')"></td>
 		</tr>
 	</table>
 </form>

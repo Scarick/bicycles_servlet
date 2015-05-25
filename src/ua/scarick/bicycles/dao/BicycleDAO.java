@@ -13,4 +13,5 @@ public interface BicycleDAO {
 	public BicycleStorage getBicycle(int id) throws SQLException;
 	public void updateBicycle(BicycleStorage bicycle) throws SQLException;
 	public void deleteBicycle(BicycleStorage bicycle) throws SQLException;
+	public void deleteBicycle(int id) throws SQLException;
 }

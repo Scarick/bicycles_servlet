@@ -108,4 +108,12 @@ public class MySqlBicycleDao implements BicycleDAO {
 		statement.executeUpdate();
 	}
 	
+	public void deleteBicycle(int id) throws SQLException {
+
+		String query = "DELETE FROM akvelon.bicycle_storage WHERE id=" + id + ";";
+		
+		PreparedStatement statement = connection.prepareStatement(query);		
+		statement.executeUpdate();
+	}
+	
 }

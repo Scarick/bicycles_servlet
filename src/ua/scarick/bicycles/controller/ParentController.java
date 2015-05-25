@@ -23,7 +23,8 @@ import ua.scarick.bicycles.dao.MySqlDaoFactory;
 public class ParentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected DaoFactory daoFactory;
-	protected Connection connection;	
+	protected Connection connection;
+	protected BicycleDAO bicycleDao;
        
     /**
      * @see HttpServlet#HttpServlet()

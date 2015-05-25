@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ua.scarick.bicycles.dao.BicycleDAO;
 import ua.scarick.bicycles.entity.BicycleStorage;
 
 /**
@@ -16,7 +15,7 @@ import ua.scarick.bicycles.entity.BicycleStorage;
  */
 public class EditController extends ParentController {
 	private static final long serialVersionUID = 1L;
-	private BicycleDAO bicycleDao;  
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -29,7 +28,9 @@ public class EditController extends ParentController {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		bicycleDao = getDao();
+		
 		// Get array of checked items
 		String[] checkedBicycle = request.getParameterValues("checkedBicycle");
 		
