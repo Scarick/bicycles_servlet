@@ -39,8 +39,9 @@
 			}
 		}
 	}
-	function refresh() {
-		location.reload();
+	
+	function refreshTab() {
+		document.location.href = "/bicycles_servlet/bicycles";
 	}
 	</script>
 	<title>Bicycle Storage</title>	
@@ -75,7 +76,7 @@
 	</table> 
 	<table>
 		<tr>
-			<td><input id="refreshButton" name="refresh" type="button" value="Refresh" onclick="refresh()"></td>
+			<td><input id="refreshButton" name="refresh" type="button" value="Refresh" onclick="refreshTab()"></td>
 			<td><input id="editButton" name="edit" type="submit" value="Edit"></td>
 			<td><input id="deleteButton" name="delete" type="button" value="Delete" onclick="return deleteChecked('checkedBicycle')"></td>
 		</tr>

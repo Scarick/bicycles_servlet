@@ -29,6 +29,8 @@ public class BicycleController extends ParentController {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
 		bicycleDao = getDao();
 		
 		try {			
@@ -36,7 +38,8 @@ public class BicycleController extends ParentController {
 			request.setAttribute("bicycleStorageList", bicycleStorageList);
 		} catch (SQLException e) {			
 			e.printStackTrace();
-		}	
+		}
+		
 		request.getRequestDispatcher("/WEB-INF/jsp/bicycle.jsp").forward(request, response);
 		
 	}	
