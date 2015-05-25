@@ -40,9 +40,7 @@
     <path id="bicycles_servlet.classpath">
         <pathelement location="build/classes"/>
         <path refid="Apache Tomcat v6.0 [Apache Tomcat v6.0].libraryclasspath"/>
-        <path refid="Web App Libraries.libraryclasspath"/>
-        <path refid="EAR Libraries.libraryclasspath"/>
-        <path refid="EclipseLink 2.5.2.userclasspath"/>
+        <path refid="Web App Libraries.libraryclasspath"/>        
         <path refid="MySQL JDBC Driver.libraryclasspath"/>
     </path>
     <target name="init">
