@@ -29,7 +29,7 @@
 	// Delete checked items
 	function deleteChecked(checkedBicycle) {
 		var checkboxesChecked = getChecked(checkedBicycle);		
-		if (!checkboxesChecked.isEmpty()) {
+		if (checkboxesChecked != "") {
 			var jsonCheckboxesChecked = {jsonCheckboxesChecked : JSON.stringify(checkboxesChecked)};
 			if (confirm("Do you really want remove it?")) {
 				$.post("/bicycles_servlet/delete", jsonCheckboxesChecked, function(response) {
