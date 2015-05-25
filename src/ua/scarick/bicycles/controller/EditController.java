@@ -35,7 +35,9 @@ public class EditController extends ParentController {
 		String[] checkedBicycle = request.getParameterValues("checkedBicycle");
 		
 		if (checkedBicycle == null) {
-			request.setAttribute("bicycleID", null);			
+			
+			request.setAttribute("bicycleID", null);
+			
 		} else if (checkedBicycle.length == 1) {			
 			try {
 				// Get bicycle with checked id
@@ -47,6 +49,7 @@ public class EditController extends ParentController {
 			} catch (SQLException e) {				
 				e.printStackTrace();
 			}
+			
 			request.setAttribute("bicycleID", checkedBicycle[0]);			
 		}
 		request.getRequestDispatcher("/WEB-INF/jsp/edit.jsp").forward(request, response);
