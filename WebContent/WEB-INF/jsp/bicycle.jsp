@@ -26,26 +26,32 @@
 	}
 	// Delete checked items
 	function deleteChecked(checkedBicycle) {
-		var checkboxesChecked = getChecked(checkedBicycle);		
+		var checkboxesChecked = getChecked(checkedBicycle);
+		var locationSend = "/" + getLocation() + "/delete";
 		if (checkboxesChecked != "") {
 			var jsonCheckboxesChecked = {jsonCheckboxesChecked : JSON.stringify(checkboxesChecked)};
-			if (confirm("Do you really want remove it?")) {
-				$.post("/bicycles_servlet/delete", jsonCheckboxesChecked, function(response) {
-		   		 // handle response
+			if (confirm("Do you really want remove it?")) {				
+				$.post(locationSend, jsonCheckboxesChecked, function(response) {		   		 
 				location.reload();
 		   		 });
 			}
 		}
 	}
 	
-	function refreshTab() {
-		document.location.href = "/bicycles_servlet/bicycles";
+	function refreshTab() {	
+		var location = "/" + getLocation() + "/bicycles";		
+		window.location.href = location;
+	}
+	
+	function getLocation() {
+		var pathArray = window.location.pathname.split('/');
+		return pathArray[1];		
 	}
 	</script>
 	<title>Bicycle Storage</title>	
 </head>
 <body>
-<form name="mainForm" method="post" action="/bicycles_servlet/edit" onsubmit=" return validateForm('checkedBicycle');">	 
+<form name="mainForm" method="post" action="${location}/edit" onsubmit=" return validateForm('checkedBicycle');">	 
 	<table border="1" id="bicycles">
 		<thead>		
 		<tr>

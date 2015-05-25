@@ -10,14 +10,14 @@
 <head>
 <script type="text/javascript">
 function back() {
-	document.location.href = "/bicycles_servlet";	
+	window.history.back(-1);
 }
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Add item</title>
 </head>
 <body>
-	<form name="mainForm" method="post" action="/bicycles_servlet/add">
+	<form name="mainForm" method="post" action="${location}/add">
 	<table>
 		<tr>
 			<td></td>

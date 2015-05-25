@@ -39,7 +39,7 @@ public class BicycleController extends ParentController {
 		} catch (SQLException e) {			
 			e.printStackTrace();
 		}
-		
+		request.setAttribute("location", request.getContextPath());
 		request.getRequestDispatcher("/WEB-INF/jsp/bicycle.jsp").forward(request, response);
 		
 	}	
