@@ -34,12 +34,12 @@ function back() {
 		<tr>
 			<td>${bicycleID == null ? 'Enter' : 'Edit'} Gender:</td>
 			<td><select name="gender">
-		    	<option value="M">Man</option>
-		    	<option value="W">Woman</option>
-		    	<option value="B">Both</option>    	  	    	    	
+		    	<option value="M" <c:if test="${bicycleEntity.gender == 'M'}">selected='selected'</c:if>>Man</option>
+		    	<option value="W" <c:if test="${bicycleEntity.gender == 'W'}">selected='selected'</c:if>>Woman</option>
+		    	<option value="B" <c:if test="${bicycleEntity.gender == 'B'}">selected='selected'</c:if>>Both</option>    	  	    	    	
    				</select>
    			</td>
-<%-- 			<td><input type="text" name="gender" value="${bicycleEntity.gender}"/></td> --%>
+ 			<td><input type="text" name="gender" value="${bicycleEntity.gender}"/></td>
 		</tr>
 		<tr>
 			<td>${bicycleID == null ? 'Enter' : 'Edit'} Amount:</td>
