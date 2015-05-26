@@ -4,11 +4,7 @@
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. -->
-<project basedir="." default="build.war" name="bicycles_servlet">
-    <property environment="env"/>
-    <property name="debuglevel" value="source,lines,vars"/>
-    <property name="target" value="1.6"/>
-    <property name="source" value="1.6"/>
+<project basedir="." default="build.war" name="bicycles_servlet">    
 	<property name="dir.build" value="build"/>
 	<property name="dir.classes" value="${dir.build}/classes"/>
 	<property name="dir.src" value="src"/>
@@ -46,6 +42,7 @@
 	       			<fileset dir="${dir.classes}" />	       			
 	        </copy>
 	</target>
+	
 	<target name="build.war" depends="build.war.content">
 	        <delete file="${file.war}"/>
 			

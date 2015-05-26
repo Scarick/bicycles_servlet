@@ -40,7 +40,7 @@ function back() {
 			<td><input type="text" name="amount" value="${bicycleEntity.amount}"/></td>
 		</tr>
 		<tr>
-			<td>${bicycleID == null ? 'Choose' : 'Edit'} date of last check:</td>
+			<td>${bicycleID == null ? 'Choose' : 'Edit'} date of last check (year-month-day):</td>
 			<td><input type="text" name="lastCheck" value="${bicycleEntity.lastCheck}"/></td>
 		</tr>		
 	</table> 

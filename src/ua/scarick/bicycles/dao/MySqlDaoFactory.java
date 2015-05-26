@@ -10,7 +10,11 @@ import java.util.Properties;
 public class MySqlDaoFactory implements DaoFactory {
 	
 	private String driver;
-	private String dburl;
+	private String dburn;
+	private String dbhost;
+	private String dbport;
+	private String dbBaseName;
+	private String dbTableName;
 	private String user;
 	private String password;
 	
@@ -19,7 +23,11 @@ public class MySqlDaoFactory implements DaoFactory {
 		Properties prop = new Properties();
 		prop.load(getClass().getResourceAsStream("/connection.properties"));
 		driver = prop.getProperty("driver");
-		dburl = prop.getProperty("dburl");
+		dburn = prop.getProperty("dburn");
+		dbhost = prop.getProperty("dbhost");
+		dbport = prop.getProperty("dbport");
+		dbBaseName = prop.getProperty("dbbasename");
+		dbTableName = prop.getProperty("dbtablename");
 		user = prop.getProperty("user");
 		password = prop.getProperty("password");
 		
@@ -29,18 +37,18 @@ public class MySqlDaoFactory implements DaoFactory {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-	
+	}	
 	
 	@Override
-	public Connection getConnection() throws SQLException {		
+	public Connection getConnection() throws SQLException {
+		String dburl = dburn + dbhost + ":" + dbport + "/" + dbBaseName;
 		return DriverManager.getConnection(dburl, user, password);
 	}
 
 	@Override
 	public BicycleDAO getMySqlBicycleDAO(Connection connection) {
-		
-		return new MySqlBicycleDao(connection);
+		String dbName = dbBaseName + "." + dbTableName;
+		return new MySqlBicycleDao(connection, dbName);
 	}
 
 }

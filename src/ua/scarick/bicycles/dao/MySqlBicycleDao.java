@@ -12,14 +12,16 @@ import ua.scarick.bicycles.entity.BicycleStorage;
 public class MySqlBicycleDao implements BicycleDAO {
 	
 	private Connection connection;
+	private String base;
 
-	public MySqlBicycleDao(Connection connection) {
+	public MySqlBicycleDao(Connection connection, String dbaseFullName) {
 		this.connection = connection;
+		this.base = dbaseFullName;
 	}
 
 	@Override
 	public List<BicycleStorage> getAllBicycles() throws SQLException {
-		String query = "SELECT * FROM akvelon.bicycle_storage;";
+		String query = "SELECT * FROM " + base;
 		PreparedStatement statement = connection.prepareStatement(query);
 		ResultSet rs = statement.executeQuery();
 		List<BicycleStorage> bicycleList = new ArrayList<BicycleStorage>();
@@ -43,7 +45,7 @@ public class MySqlBicycleDao implements BicycleDAO {
 	@Override
 	public void createBicycle(BicycleStorage bicycle) throws SQLException {
 		
-		String query = "INSERT INTO akvelon.bicycle_storage (manufacturer, model, gender, amount, last_check)"
+		String query = "INSERT INTO " + base + " (manufacturer, model, gender, amount, last_check)"
 				+ " VALUES (?, ?, ?, ?, ?);";
 		PreparedStatement statement = connection.prepareStatement(query);
 		statement.setString(1, bicycle.getManufacturer());
@@ -58,7 +60,7 @@ public class MySqlBicycleDao implements BicycleDAO {
 	@Override
 	public BicycleStorage getBicycle(int id) throws SQLException {
 		
-		String query = "SELECT * FROM akvelon.bicycle_storage WHERE id=?";
+		String query = "SELECT * FROM " + base + " WHERE id=?";
 		PreparedStatement statement = connection.prepareStatement(query);
 		
 		statement.setInt(1, id);
@@ -83,7 +85,7 @@ public class MySqlBicycleDao implements BicycleDAO {
 	@Override
 	public void updateBicycle(BicycleStorage bicycle) throws SQLException {
 		
-		String query = "UPDATE akvelon.bicycle_storage SET manufacturer=?, model=?, gender=?, amount=?, last_check=? WHERE id=?;";
+		String query = "UPDATE " + base + " SET manufacturer=?, model=?, gender=?, amount=?, last_check=? WHERE id=?;";
 		
 		PreparedStatement statement = connection.prepareStatement(query);
 		
@@ -100,7 +102,7 @@ public class MySqlBicycleDao implements BicycleDAO {
 	@Override
 	public void deleteBicycle(BicycleStorage bicycle) throws SQLException {
 
-		String query = "DELETE FROM akvelon.bicycle_storage WHERE id=?;";
+		String query = "DELETE FROM " + base + " WHERE id=?;";
 		PreparedStatement statement = connection.prepareStatement(query);
 		
 		statement.setInt(1, bicycle.getId());
@@ -110,7 +112,7 @@ public class MySqlBicycleDao implements BicycleDAO {
 	
 	public void deleteBicycle(int id) throws SQLException {
 
-		String query = "DELETE FROM akvelon.bicycle_storage WHERE id=" + id + ";";
+		String query = "DELETE FROM " + base + " WHERE id=" + id + ";";
 		
 		PreparedStatement statement = connection.prepareStatement(query);		
 		statement.executeUpdate();
