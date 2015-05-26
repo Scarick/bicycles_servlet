@@ -32,8 +32,14 @@ function back() {
 			<td><input type="text" name="model" value="${bicycleEntity.model}"/></td>
 		</tr>
 		<tr>
-			<td>${bicycleID == null ? 'Enter' : 'Edit'} Gender(M, W or B):</td>
-			<td><input type="text" name="gender" value="${bicycleEntity.gender}"/></td>
+			<td>${bicycleID == null ? 'Enter' : 'Edit'} Gender:</td>
+			<td><select name="gender">
+		    	<option value="M">Man</option>
+		    	<option value="W">Woman</option>
+		    	<option value="B">Both</option>    	  	    	    	
+   				</select>
+   			</td>
+<%-- 			<td><input type="text" name="gender" value="${bicycleEntity.gender}"/></td> --%>
 		</tr>
 		<tr>
 			<td>${bicycleID == null ? 'Enter' : 'Edit'} Amount:</td>
