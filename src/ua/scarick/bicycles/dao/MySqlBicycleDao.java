@@ -54,7 +54,9 @@ public class MySqlBicycleDao implements BicycleDAO {
 		statement.setInt(4, bicycle.getAmount());
 		statement.setDate(5, new java.sql.Date(bicycle.getLastCheck().getTime()));
 		
-		statement.executeUpdate();					
+		statement.executeUpdate();	
+		
+		statement.close();
 	}
 
 	@Override
@@ -96,7 +98,9 @@ public class MySqlBicycleDao implements BicycleDAO {
 		statement.setDate(5, new java.sql.Date(bicycle.getLastCheck().getTime()));
 		statement.setInt(6, bicycle.getId());
 		
-		statement.executeUpdate();		
+		statement.executeUpdate();	
+		
+		statement.close();
 	}
 
 	@Override
@@ -108,6 +112,8 @@ public class MySqlBicycleDao implements BicycleDAO {
 		statement.setInt(1, bicycle.getId());
 		
 		statement.executeUpdate();
+		
+		statement.close();
 	}
 	
 	public void deleteBicycle(int id) throws SQLException {
@@ -116,6 +122,8 @@ public class MySqlBicycleDao implements BicycleDAO {
 		
 		PreparedStatement statement = connection.prepareStatement(query);		
 		statement.executeUpdate();
+		
+		statement.close();
 	}
 	
 }

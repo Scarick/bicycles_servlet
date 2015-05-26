@@ -8,17 +8,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script type="text/javascript">
-function back() {
-	window.history.back(-1);
-}
-</script>
+	<%@ include file="/WEB-INF/jsp/res.jsp" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Add item</title>
 </head>
 <body>
+	<div id="wrapper">
+		<c:if test="${bicycleID == null}"><h2>Add a new bicycle</h2></c:if>
+		<c:if test="${bicycleID != null}"><h2>Change the bicycle</h2></c:if>
 	<form name="mainForm" method="post" action="${location}/add">
-	<table>
+	<table class="table-form">
 		<tr>
 			<td></td>
 			<td><input type="hidden" name="id" value="${bicycleEntity.id}"/></td>
@@ -38,8 +37,7 @@ function back() {
 		    	<option value="W" <c:if test="${bicycleEntity.gender == 'W'}">selected='selected'</c:if>>Woman</option>
 		    	<option value="B" <c:if test="${bicycleEntity.gender == 'B'}">selected='selected'</c:if>>Both</option>    	  	    	    	
    				</select>
-   			</td>
- 			<td><input type="text" name="gender" value="${bicycleEntity.gender}"/></td>
+   			</td> 			
 		</tr>
 		<tr>
 			<td>${bicycleID == null ? 'Enter' : 'Edit'} Amount:</td>
@@ -47,16 +45,17 @@ function back() {
 		</tr>
 		<tr>
 			<td>${bicycleID == null ? 'Choose' : 'Edit'} date of last check (year-month-day):</td>
-			<td><input type="text" name="lastCheck" value="${bicycleEntity.lastCheck}"/></td>
+			<td><input type="text" id="datepicker" name="lastCheck" value="${bicycleEntity.lastCheck}"/></td>
 		</tr>		
 	</table> 
 	
-	<table>
+	<table class="table-buttons">
 		<tr>
-			<td><input id="saveButton" name="save" type="submit" value= "${bicycleID == null ? 'Add' : 'Save'}"></td>
-			<td><input id="cancelButton" name="cancel" type="button" value="Cancel" onclick="back();"></td>			
+			<td><input class="button" id="saveButton" name="save" type="submit" value= "${bicycleID == null ? 'Add' : 'Save'}"></td>
+			<td><input class="button" id="cancelButton" name="cancel" type="button" value="Cancel" onclick="back();"></td>			
 		</tr>
 	</table>
-</form>
+	</form>
+</div>
 </body>
 </html>
