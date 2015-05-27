@@ -191,3 +191,10 @@ h2 {
 	-webkit-border-bottom-right-radius:3px;
 	border-bottom-right-radius:3px;
 }
+.warning-cell {
+	height: 21px;
+	text-align: left;
+}
+#inner-table {
+	margin-top: 7px;
+}
