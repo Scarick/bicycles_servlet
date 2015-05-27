@@ -60,8 +60,9 @@
 	function verifyLastCheck() {
 		var lastCheck = document.getElementById('lastCheck');
 		var warning = document.getElementById("warningLastCheck");
-		var lastCheckVerify = /\d{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])/;
-		if (lastCheck.value != "" && LastCheckVerify.test(lastCheck.value)) {
+		var lastCheckVerify = /(19|20)\d\d-((0[1-9]|1[012])-(0[1-9]|[12]\d)|(0[13-9]|1[012])-30|(0[13578]|1[02])-31)/;
+		//var lastCheckVerify = /([0-9]{4})-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])/;
+		if (lastCheck.value != "" && lastCheckVerify.test(lastCheck.value)) {
 			warning.style.display = "none";
 			return true;
 		} else {
