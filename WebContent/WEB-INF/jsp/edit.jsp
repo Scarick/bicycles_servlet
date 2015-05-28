@@ -23,8 +23,8 @@
 				<form name="mainForm" method="post" action="${location}/add" onsubmit=" return validateAddForm();">
 					<table class="table-form">
 						<tr>
-							<td></td>
-							<td><input type="hidden" name="id" value="${bicycleEntity.id}"/></td>			
+							
+							<input type="hidden" name="id" value="${bicycleEntity.id}"/>			
 						</tr>						
 						<tr>
 							<td>${bicycleID == null ? 'Enter' : 'Edit'} Manufacturer</td>

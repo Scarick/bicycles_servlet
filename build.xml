@@ -37,8 +37,8 @@
 	
 	<target name="compile" depends="init">         
 	   <javac debug="true" destdir="${dir.classes}" srcdir="${dir.src}" includeantruntime="false">
-	   <classpath refid="build.classpath"/>
-	        </javac>
+	   		<classpath refid="build.classpath"/>
+	   </javac>
 	 </target>   
     
 	<target name="build.war.content" depends="compile">

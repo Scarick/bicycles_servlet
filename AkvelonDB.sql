@@ -54,4 +54,6 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+CREATE USER 'denisenko'@'localhost' IDENTIFIED BY '12345';
+GRANT ALL PRIVILEGES ON denisenko_test.bicycle_storage TO 'denisenko'@'localhost';
 -- Dump completed on 2015-05-26 12:43:47
