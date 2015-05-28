@@ -82,7 +82,7 @@
 	// Delete checked items
 	function deleteChecked(checkedBicycle) {
 		var checkboxesChecked = getChecked(checkedBicycle);
-		var locationSend = "/" + getLocation() + "/delete";
+		var locationSend = getLocation() + "/delete";
 		if (checkboxesChecked != "") {
 			var jsonCheckboxesChecked = {jsonCheckboxesChecked : JSON.stringify(checkboxesChecked)};
 			if (confirm("Do you really want remove it?")) {				
@@ -92,15 +92,20 @@
 			}
 		}
 	}
-	// Refresh table (truely page)
-	function refreshTab() {	
-		var location = "/" + getLocation() + "/bicycles";		
-		window.location.href = location;
+	// Refresh table (truly refresh whole page)
+	function refreshTab() {			
+		location.reload();
 	}
 	
-	function getLocation() {
-		var pathArray = window.location.pathname.split('/');
-		return pathArray[1];		
+	// For local or production deploy
+	function getLocation() {		
+		var pathArray = window.location.href.split('/');		
+		if (pathArray.length == 4) {			
+			return "";
+		}
+		if (pathArray.length == 5) {			
+			return "/" + pathArray[3];
+		}
 	}	
 	
 	function back() {
