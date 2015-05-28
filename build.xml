@@ -10,9 +10,15 @@
 	<property name="dir.src" value="src"/>
 	<property name="dir.war.content" value="${dir.build}/war.content"/>	
 	<property name="name.application" value="bicycles"/>
-	<property name="file.war" value="${dir.build}/${name.application}.war"/>
+	<property name="file.war" value="${dir.build}/${name.application}.war"/>	
+	
+	<path id="build.classpath">
+	  <fileset dir="WebContent/WEB-INF/lib"/>
+	  <fileset dir="libs"/>  
+	</path>
     
 	<target name="mkdirs">
+		<mkdir dir="${dir.build}"/>
 		<mkdir dir="${dir.classes}"/>
 	</target>
 	
@@ -29,9 +35,11 @@
         </copy>
     </target>
 	
-	<target name="compile" depends="init">
-	        <javac srcdir="${dir.src}" destdir="${dir.classes}" />
-	</target>     
+	<target name="compile" depends="init">         
+	   <javac debug="true" destdir="${dir.classes}" srcdir="${dir.src}" includeantruntime="false">
+	   <classpath refid="build.classpath"/>
+	        </javac>
+	 </target>   
     
 	<target name="build.war.content" depends="compile">
 	        <copy todir="${dir.war.content}" preservelastmodified="true" overwrite="true">
